@@ -1,0 +1,24 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="content">
+        <h2>All Departments</h2>
+
+        <% if (departments.length > 0) { %>
+            <% departments.forEach(department => { %>
+                <a class="single" href="/departments#">
+                    <h3 class="title"><%= department.name %></h3>
+                    <p class="description"><%= department.description %></p>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <p>No departments yet!</p>
+        <% } %>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>

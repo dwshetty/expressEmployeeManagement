@@ -1,0 +1,40 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <% if(error) { %>
+      <p class="error"><%= error %></p>
+      <hr />
+  <% } %>
+
+  <div class="content">
+    <form action="/employees" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" name="surname" required>
+      <label for="department">Department:</label>
+      <input type="text" name="department" id="department" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <hr />
+
+  <div class="content">
+    <form action="/departments" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

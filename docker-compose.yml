@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+ 
+  app:
+    image: expressemployeemanagement
+    ports:
+      - "8000:8080"
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+ 
+networks:
+  app-network:
+    driver: bridge
